@@ -1,0 +1,34 @@
+spring:
+#  application:
+#    name: config-client
+  cloud:
+    config:
+    ##使用指定的config-server地址
+      uri: http://localhost:8010/
+      ##注释掉的内容是从服务发现使用config-server的服务名
+#      discovery:
+#        enabled: true
+#        service-id: config-server
+      name: foo
+      profile: dev
+      label: config-label-v2.0
+      enabled: true
+      ##失败快速响应与重试
+      fail-fast: true
+      ##失败后的重试机制
+      retry:
+        initial-interval: 1200
+        multiplier: 3.0D
+        max-interval: 2000
+        max-attempts: 5
+
+##对config中的说明，foo-dev.properties，name:表示git server中配置文件的开头，profile是指配置文件类型，label是文件版本
+
+##开启所有的端点配置,如/routers ,health,info等
+##http://localhost:8031/actuator/routes
+management:
+  endpoints:
+    web:
+      exposure:
+#        include: 'health,env,loggers'
+        include: '*'

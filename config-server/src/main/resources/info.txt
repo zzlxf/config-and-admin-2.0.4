@@ -1,0 +1,9 @@
+从git读取不同的版本的控制文件方式。
+
+1、读取config-label-v2.0分支的foo-prod.properties文件
+http://localhost:8034/config-label-v2.0/foo-prod.properties
+
+2、读取master主线的foo应用的prod配置
+http://localhost:8034/foo/prod
+
+3、

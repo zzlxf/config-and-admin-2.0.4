@@ -1,0 +1,11 @@
+server:
+  port: 8012
+  servlet:
+    context-path: /admin
+spring:
+  application:
+    name: admin-server
+#  security:
+#    user:
+#      name: admin
+#      password: admin

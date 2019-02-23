@@ -1,0 +1,39 @@
+server:
+  port: 8010
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/zzlxf/spring-cloud-config-repo
+#          username: zzlxf
+#          password: baidu@1234
+          search-paths: test
+          clone-on-start: true
+        ##健康检测异常时，config-server配置默认的仓库路径
+        health:
+          repositories:
+            a-foo:
+              label: config-label-v2.0
+              name: foo
+              profile: prod
+
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+#  instance:
+#    prefer-ip-address: true
+
+logging:
+  level:
+    root: info
+    org.springframwork.cloud: debug
+    org.springframwork.boot: debug
+
+###设置加密及对称的密钥
+#encrypt:
+#  key: foo
